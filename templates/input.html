@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}ReadIt - Search{% endblock %}
+
+{% block content %}
+
+    <h1>Welcome to ReadIt</h1>
+
+    <p>Choose whatever genres you want to read or type in a book that you've enjoyed and search. 
+       Then, sit back and relax as our special algorithm does the hard work for you! All you 
+       have to do is pick up the book and read!</p>
+    
+
+    <form action="/results" method="POST">
+        <div class="form-group">
+            <label for="desc">Enter </label>
+            <input type="text" id="desc" name="desc" required placeholder="Start your search here...">
+        </div>
+
+        <button type="submit">Find Your Book</button>
+    </form>
+
+{% endblock %}
