@@ -1,1 +1,1 @@
-# Lingpy
+# Python Project
