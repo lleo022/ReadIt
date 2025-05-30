@@ -12,12 +12,14 @@
     <header>
         <nav class="navbar">
             <div class="navbar-content">
-                <a href="{{ url_for('index') }}" class="navbar-brand">ReadIt</a>
+                <a href="{{ url_for('index') }}" class="navbar-logo">ReadIt</a>
                 
                 <div class="navbar-nav">
                     <li><a href="{{ url_for('favorites') }}">Favorites</a></li>
 
-                    <a href="{{ url_for('input') }}"> <button class="navbar-button">Explore</button> </a>
+                    <a href="{{ url_for('input') }}"> 
+                        <button class="navbar-button">Explore</button> 
+                    </a>
                 </div>
             </div>
         </nav>
