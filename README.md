@@ -11,9 +11,9 @@ ReadIt is a book recommendation webapp. It takes in a book title and/or genre as
 - Prioritizes genre-matching books, but expands to similar genres if needed
 
 ## Tech Stack
-- Frontend: HTML, CSS
-- Backend: Python (Flask)
-- Libraries
+- **Frontend**: HTML, CSS
+- **Backend**: Python (Flask)
+- **Libraries**
   - pandas
   - numpy
   - re
@@ -23,6 +23,7 @@ ReadIt is a book recommendation webapp. It takes in a book title and/or genre as
 ## Dataset
 [Link to Dataset Used](https://www.kaggle.com/datasets/ishikajohari/best-books-10k-multi-genre-data)
 
-Columns: Title, Author, Description, Genre1, ..., Genre 5, Avg Rating, Num Ratings, Weighted Rating
+**Columns**: Title, Author, Description, Genre1, ..., Genre 5, Avg Rating, Num Ratings, Weighted Rating
 
 The original dataset contained all the genres as one list in a column, but I narrowed it down to have one genre per column and only consider the top five genres listed. 
+
