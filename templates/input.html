@@ -4,20 +4,29 @@
 
 {% block content %}
 
-    <h1>Welcome to ReadIt</h1>
+    <h1>Expand Your Library</h1>
 
-    <p>Choose whatever genres you want to read or type in a book that you've enjoyed and search. 
-       Then, sit back and relax as our special algorithm does the hard work for you! All you 
-       have to do is pick up the book and read!</p>
+    <p>Getting started is simple. Just type in a book that you enjoyed and which genre you are looking for. You only
+        need to fill in one of the options to let our algorithm work its magic, but filling out both goes a long way 
+        in helping us help you! After that, just sit back and await the results. No matter where your interests lie, 
+        we're sure to find the right read for you!</p>
     
-
-    <form action="/results" method="POST">
+    <form action="/results" method="POST" onsubmit="return validateForm()">
         <div class="form-group">
-            <label for="desc">Enter </label>
-            <input type="text" id="desc" name="desc" required placeholder="Start your search here...">
+            <label for="desc">Title</label>
+            <input type="text" id="title" name="title" placeholder="Enter the title here...">
         </div>
 
-        <button type="submit">Find Your Book</button>
+        <div class="form-group">
+            <label for="desc">Genre</label>
+            <input type="text" id="genre" name="genre" placeholder="Enter the genre here...">
+        </div>
+
+        <div class="button-wrapper">
+            <button type="submit">Start Your Search</button>
+        </div>
     </form>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 {% endblock %}
