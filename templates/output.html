@@ -6,13 +6,30 @@
 
     <h1>ReadIt Result:</h1>
     
-    <div class="result">
-        <h3>You should read:</h3>
-        <p><strong>{{ title }}</strong></p>
-    </div>
-    
-    <a href="/back">
-        <button class="back-button">Find Another Book</button>
-    </a>
+    {% if recommendations %}
+        {% for book in recommendations %}
+        <div class="result">
+
+            <h3>{{ book['Title'] }}</h3>
+            <p><strong>Author:</strong> {{ book['Author'] }}</p>
+            <p><strong>Average Rating:</strong> {{'%.2f'% book['Avg Rating'] }}</p>
+            <p><strong>Number of Ratings:</strong> {{ book['Num of Ratings'] }}</p>
+            <p><strong>Weighted Rating:</strong> {{'%.2f'% book['Weighted Rating'] }}</p>
+            <p><strong>Description:</strong> {{ book['Description'] }}</p>
+
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="result">
+            <h3>No recommendations found.</h3>
+            <p>Please try again.</p>
+        </div>
+    {% endif %}
+
+    <div class="button-wrapper">
+        <a href="/back">
+           <button class="back-button">Find Another Book</button>
+        </a>
+     </div>
 
 {% endblock %}

@@ -13,7 +13,8 @@ ReadIt is a book recommendation webapp. It takes in a book title and/or genre as
 ## Tech Stack
 - **Frontend**: HTML, CSS
 - **Backend**: Python (Flask)
-- **Libraries**
+- **Dependencies**
+  - flask
   - pandas
   - numpy
   - re
