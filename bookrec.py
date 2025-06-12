@@ -15,7 +15,7 @@ def recommend(title="", genre=""):
     title = title.lower()
     genre = genre.lower()
     
-    # Filter by genre, else use all the data
+    # Filter by genre
     if genre.strip():
         temp = df[
             (df['Genre1'].str.lower() == genre) |
@@ -24,6 +24,7 @@ def recommend(title="", genre=""):
             (df['Genre4'].str.lower() == genre) |
             (df['Genre5'].str.lower() == genre)
         ].reset_index(drop=True)
+    # If selected genre not present, use all the data
     else:
         temp = df.copy()
 
@@ -34,10 +35,10 @@ def recommend(title="", genre=""):
 
     matchTitle = None
     genreTitles = temp["Title"].str.lower()
-    # Exact match in genre-filtered data
+    # Test for exact match in genre-filtered data
     if title in genreTitles.values:
         matchTitle = temp.loc[genreTitles == title, 'Title'].values[0]
-    # Bigram match for similar titles in genre-filtered data
+    # Bigram match wit cosine similarity to estimiate what the user meant genre-filtered titles
     elif not temp.empty:
         print(title)
         similarTitle = TfidfVectorizer(ngram_range=(2, 2), stop_words='english')
