@@ -17,9 +17,8 @@ ReadIt is a book recommendation webapp. It takes in a book title and/or genre as
   - flask
   - pandas
   - numpy
-  - re
-  - nltk
   - sklearn
+  - nltk stopwords
 
 ## Dataset
 [Link to Dataset Used](https://www.kaggle.com/datasets/ishikajohari/best-books-10k-multi-genre-data)
