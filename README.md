@@ -1,30 +1,45 @@
 # ReadIt
+**ReadIt** is a smart book recommendation web application designed to help users discover their next favorite read. By leveraging Natural Language Processing (NLP), ReadIt analyzes book descriptions and genres to provide personalized suggestions based on content similarity rather than just popularity.
 
 ## What Is Readit?
-ReadIt is a book recommendation webapp. It takes in a book title and/or genre as input and using that information, suggests possible books that the user may enjoy. It uses Natural Language Processing (NLP) techniques such as TF-IDF and cosine similarity to suggest similar books from a large dataset sourced from Kaggle. 
+ReadIt takes a book title and/or a preferred genre as input. It processes this information against a dataset of over 10,000 books to suggest titles that are semantically similar to the user's input.
+
+Unlike simple filter-based systems, ReadIt uses **TF-IDF (Term Frequency-Inverse Document Frequency)** and **Cosine Similarity** to understand the nuances of book descriptions, ensuring that recommendations match the feel and theme of the book you liked.
 
 ## Features
-- Accepts partial or approximate book titles using bigram similarity to guess the user's meaning
-- Filters by genre (case insensitive)
-- Analyzes books based on the similarity of their descriptions (based on data from Goodreads)
-- Recommends top-rated books by genre if no title is provided
-- Prioritizes genre-matching books, but expands to similar genres if needed
+- **Smart Title Matching:** Accepts partial or approximate book titles, using bigram similarity to guess the user's intended book even if there are typos.
+
+- **Content-Based Filtering:** Analyzes the actual text of book descriptions (sourced from Goodreads) to find narrative similarities.
+
+- **Genre Filtering:** Allows users to filter results by genre (case insensitive) to refine recommendations.
+
+- **Smart Fallbacks:**
+    - Prioritizes genre-matching books but expands to similar genres if necessary.
+    - Recommends top-rated books within a specific genre if no specific title is provided.
 
 ## Tech Stack
-- **Frontend**: HTML, CSS
-- **Backend**: Python (Flask)
-- **Dependencies**
-  - flask
-  - pandas
-  - numpy
-  - re
-  - nltk
-  - sklearn
+**Frontend**: 
+- HTML
+- CSS
+- JavaScript
+
+**Backend**:
+- Python (Flask)
+
+**Machine Learning & NLP Libraries:**
+- pandas & numpy (Data Processing)
+- re (Regular Expressions)
+- nltk (Natural Language Toolkit)
+- sklearn (Scikit-learn for TF-IDF and Cosine Similarity)
 
 ## Dataset
-[Link to Dataset Used](https://www.kaggle.com/datasets/ishikajohari/best-books-10k-multi-genre-data)
+The application uses the **Best Books 10k Multi-Genre Data** sourced from Kaggle.
+- Source: [Link to Dataset](https://www.kaggle.com/datasets/ishikajohari/best-books-10k-multi-genre-data)
 
-**Columns**: Title, Author, Description, Genre1, ..., Genre 5, Avg Rating, Num Ratings, Weighted Rating
+- Key Attributes: Title, Author, Description, Genres, Average Rating, and Number of Ratings.
 
-The original dataset contained all the genres as one list in a column, but I narrowed it down to have one genre per column and only consider the top five genres listed. 
+**Data Preprocessing:** 
+- **Genre Handling:** The original dataset contained genres listed in a single column. For ReadIt, this was preprocessed to separate genres into distinct columns, considering only the top five genres listed for each book.
+
+- **Weighted Rating:** A custom formula was applied to the dataset to calculate a "Weighted Rating." This calculation accounts for the number of ratings a book has received. This ensures that a book with a single 5-star review does not artificially rank higher than a classic book with thousands of 4.8-star reviews.
 
